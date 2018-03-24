@@ -23,7 +23,7 @@ cd RIOT
                                             # RIOT instances
 ```
 
-### Installing
+### Installation
 Go into examples
 
 ```
