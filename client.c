@@ -9,9 +9,14 @@
 
 uint8_t buffer[128];
 
-int udp_client(void)
+int udp_client(int argc, char **argv)
 {
+	if(argc != 2){
+		puts("Usage client <message>");
+		return -1;
+	}
 
+	char * message = argv[1];
 
     sock_udp_ep_t local = SOCK_IPV6_EP_ANY;
     sock_udp_t sock;
@@ -27,7 +32,7 @@ int udp_client(void)
         remote.port = 12345;
         ipv6_addr_set_all_nodes_multicast((ipv6_addr_t *)&remote.addr.ipv6,
                                           IPV6_ADDR_MCAST_SCP_LINK_LOCAL);
-        if (sock_udp_send(&sock, "Hello", sizeof("Hello"), &remote) < 0) {
+        if (sock_udp_send(&sock, message, sizeof(message), &remote) < 0) {
             puts("Error sending message");
             sock_udp_close(&sock);
             return 1;
