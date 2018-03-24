@@ -74,7 +74,7 @@ Run the client with
 ```
 client <messageToBeSent>
 ```
-This will send your message and wait for the reply for 2 seconds, if the reply is not present, it will throw a timeout error and continue sending messages. 
+This will continously send your message and wait for the reply for 2 seconds, if the reply is not present, it will throw a timeout error and continue sending messages. 
 Else, will print the reply message. 
 
 ## References
